@@ -81,7 +81,7 @@ export function ImpactMapClient({
           position: absolute;
           inset: 0;
           border-radius: 50%;
-          border: 2px solid rgba(34, 197, 94, 0.6);
+          border: 2px solid rgba(200, 102, 77, 0.5);
           transform-origin: center;
           animation: impact-pulse-ring 2s ease-out infinite;
           pointer-events: none;
@@ -92,6 +92,7 @@ export function ImpactMapClient({
         mapStyle={MAP_STYLE}
         style={{ width: "100%", height: "100%" }}
         reuseMaps
+        onClick={() => onHover(null)}
       >
         {visiblePoints.map((point) => {
           const radiusPx = familiesToRadiusPx(point.families);
@@ -115,11 +116,16 @@ export function ImpactMapClient({
                   position: "relative",
                   pointerEvents: "auto",
                   cursor: "pointer",
+                  minWidth: 44,
+                  minHeight: 44,
                 }}
                 onMouseEnter={() => onHover(point)}
                 onMouseLeave={() => onHover(null)}
-                role="img"
-                aria-label={`Impact in ZIP ${point.zip}: ${point.families} families, ${point.children} children`}
+                onClick={() =>
+                  onHover(hoveredPoint?.zip === point.zip ? null : point)
+                }
+                role="button"
+                aria-label={`Impact in ZIP ${point.zip}: ${point.families} families, ${point.children} children. Tap to ${hoveredPoint?.zip === point.zip ? "close" : "view"} details.`}
               >
                 {/* Pulse ring (bonus) */}
                 <div className="impact-pulse-ring" />
@@ -129,9 +135,9 @@ export function ImpactMapClient({
                     position: "absolute",
                     inset: 0,
                     borderRadius: "50%",
-                    backgroundColor: `rgba(34, 197, 94, ${opacity})`,
-                    border: "2px solid rgba(255,255,255,0.9)",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                    backgroundColor: `rgba(200, 102, 77, ${opacity})`,
+                    border: "2px solid rgba(255,255,255,0.4)",
+                    boxShadow: "0 2px 12px rgba(200, 102, 77, 0.22)",
                   }}
                 />
               </div>
@@ -149,26 +155,26 @@ export function ImpactMapClient({
             offset={12}
             style={{ padding: 0 }}
           >
-            <div className="bg-white rounded-lg shadow-lg border border-slate-200 p-4 min-w-[200px]">
-              <p className="font-semibold text-slate-800 mb-2">
+            <div className="min-w-[220px] max-w-[calc(100vw-2rem)] rounded-lg p-4 sm:p-5">
+              <p className="mb-3 font-mono text-sm uppercase tracking-wider text-[var(--text-muted)]">
                 ZIP {hoveredPoint.zip}
               </p>
-              <dl className="space-y-1 text-sm text-slate-600">
-                <div className="flex justify-between gap-4">
-                  <dt>Families Served</dt>
-                  <dd className="font-medium text-slate-800">
+              <dl className="space-y-2 text-base text-[var(--text)]">
+                <div className="flex justify-between gap-6">
+                  <dt className="text-[var(--text-muted)]">Families Served</dt>
+                  <dd className="font-mono font-semibold tabular-nums">
                     {hoveredPoint.families}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4">
-                  <dt>Children Helped</dt>
-                  <dd className="font-medium text-slate-800">
+                <div className="flex justify-between gap-6">
+                  <dt className="text-[var(--text-muted)]">Children Helped</dt>
+                  <dd className="font-mono font-semibold tabular-nums">
                     {hoveredPoint.children}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4">
-                  <dt>Estimated Aid Delivered</dt>
-                  <dd className="font-medium text-emerald-600">
+                <div className="flex justify-between gap-6 border-t border-[var(--border)] pt-2">
+                  <dt className="text-[var(--text-muted)]">Est. Aid Delivered</dt>
+                  <dd className="font-mono font-semibold tabular-nums text-[var(--accent)]">
                     {formatCurrency(hoveredPoint.estimatedAid)}
                   </dd>
                 </div>

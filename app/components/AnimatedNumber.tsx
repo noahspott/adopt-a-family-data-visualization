@@ -15,5 +15,11 @@ export default function AnimatedNumber({ number }: { number: number }) {
         return () => controls.stop()
     }, [count, number])
 
-    return <motion.span className="text-8xl font-bold inline-block">{display}</motion.span>
+    return (
+        <motion.span
+            className="font-mono text-7xl font-bold tabular-nums text-[var(--accent)] glow-text sm:text-8xl lg:text-9xl"
+        >
+            {display}
+        </motion.span>
+    )
 }

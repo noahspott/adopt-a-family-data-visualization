@@ -9,8 +9,10 @@ const MapClient = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="absolute inset-0 flex items-center justify-center bg-slate-100 rounded-xl">
-        <span className="text-slate-500 font-medium">Loading map…</span>
+      <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-[var(--bg-elevated)]">
+        <span className="font-mono text-lg text-[var(--text-muted)]">
+          Loading map…
+        </span>
       </div>
     ),
   }
@@ -44,11 +46,14 @@ export function ImpactMap({ impactPoints }: ImpactMapProps) {
   }, []);
 
   return (
-    <section className="w-full max-w-5xl mx-auto">
-      <h2 className="text-2xl font-semibold text-slate-800 mb-2">
+    <section className="mx-auto w-full max-w-5xl">
+      <h2 className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-muted)]">
         Community Impact
       </h2>
-      <div className="relative w-full aspect-16/10 min-h-[320px] rounded-xl overflow-hidden shadow-lg border border-slate-200">
+      <p className="font-serif mb-6 text-2xl font-semibold text-[var(--text)] sm:text-3xl">
+        Where we&apos;re making a difference
+      </p>
+      <div className="card-elevated relative aspect-16/10 min-h-[280px] w-full overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-card)] sm:min-h-[320px]">
         <MapClient
           impactPoints={impactPoints}
           initialViewState={DEFAULT_VIEW}
@@ -58,8 +63,10 @@ export function ImpactMap({ impactPoints }: ImpactMapProps) {
           onHover={onHover}
         />
       </div>
-      <p className="mt-3 text-sm text-slate-500">
-        Hover over communities to explore the impact.
+      <p className="mt-4 text-base text-[var(--text-subtle)]">
+        <span className="sm:inline hidden">Hover over </span>
+        <span className="sm:hidden">Tap </span>
+        communities to explore the impact.
       </p>
     </section>
   );
