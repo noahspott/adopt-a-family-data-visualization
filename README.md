@@ -16,6 +16,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Community Impact Map
+
+The **Community Impact Map** at [/impact](http://localhost:3000/impact) visualizes aid across communities. To load the map, add a Mapbox access token to `.env.local`:
+
+```bash
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your_mapbox_public_token_here
+```
+
+Get a token at [mapbox.com](https://account.mapbox.com/access-tokens/). Without it, the page still loads and shows a short setup message.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
