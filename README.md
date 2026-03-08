@@ -32,7 +32,8 @@ We chose to build a **public impact visualization** so the organization can show
 ## Tech & Data
 
 - **Stack:** Next.js, TypeScript; optional Supabase client for live data.
-- **Data source:** Reads from the same Supabase schema as the main system (`families`, `sponsors`, per the [data contract](docs/data-contract.md)). The app can run on mock data or be wired to real credentials for production use.
+- **Data source:** Reads from the same Supabase schema as the main system (`families`, `sponsors`, per the [data contract](docs/data-contract.md)).
+- **Current state:** The live site uses **dummy data** only. Integration with the main team’s Supabase instance is still needed for production.
 
 ---
 
