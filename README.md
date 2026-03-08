@@ -2,7 +2,7 @@
 
 A public-facing impact dashboard built for **Adopt a Family** (Cathedral of Christ the King, Atlanta) during the **March 2026 BuildWithChrist.ai Hackathon**.
 
-**[→ View live site](https://your-project.vercel.app)** *(deployed on Vercel)*
+**[→ View live site](https://adopt-a-family-data-visualization.vercel.app/)** *(deployed on Vercel)*
 
 ---
 
