@@ -25,7 +25,7 @@ We chose to build a **public impact visualization** so the organization can show
 - **Impact map** — Geographic view of where families are served (by delivery site).
 - **Total aid** — Progress toward a program-level aid goal (e.g. dollar value or equivalent).
 
-*Screenshots:* Add a `docs/screenshots/` folder and reference images there (e.g. `docs/screenshots/stats-cards.png`, `docs/screenshots/status-funnel.png`, `docs/screenshots/impact-map.png`, `docs/screenshots/total-aid.png`) in this section or in a short **Screenshots** subsection below.
+<!-- *Screenshots:* Add a `docs/screenshots/` folder and reference images there (e.g. `docs/screenshots/stats-cards.png`, `docs/screenshots/status-funnel.png`, `docs/screenshots/impact-map.png`, `docs/screenshots/total-aid.png`) in this section or in a short **Screenshots** subsection below. -->
 
 ---
 
